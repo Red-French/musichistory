@@ -10,9 +10,9 @@
 <body>
 	<div id="nav">View Music | <a href="">Add Music</a> | <a href="">Profile</a></div>
 	<div id="options">
-		<p>Song Length:</p>
-		<input type="range" name="Length" min="2" max="5">
-		<p>Artist:</p>
+		<p class="headings">Song Length:</p>
+		<input type="range" name="Length" min="2" max="5" step=".1">
+		<p class="headings">Artist:</p>
 		<select name="artist">
 			<option value="">Options</option>
 			<option value="Hall">Tom T. Hall</option>
@@ -20,15 +20,15 @@
 			<option value="Pride">Charlie Pride</option>
 			<option value="Rodgers">Jimmie Rodgers</option>
 		</select>
-		<p>Album:</p>
+		<p class="headings">Album:</p>
 		<select name="album">
 			<option value="">Options</option>
-			<option value="5and10">Old Five and Dimers Like Me</option>
+			<option value="5and10">Five and Dimers</option>
 			<option value="roadsideBench">Roadside Bench</option>
 			<option value="Live">Live</option>
 			<option value="Brakeman">Brakeman</option>
 		</select>
-		<p>Genre:</p>
+		<p class="headings">Genre:</p>
 			<table>
 				<tr>
 					<td><input type="checkbox" name="genre" value="rock">Rock
@@ -52,7 +52,8 @@
 					</td>
 				</tr>
 			</table>
-			<button type="button" class="filterButton">Filter</button>
+			<div class="filterButton"><input type="submit" value="Filter">
+			</div>
 		</div>
 	<div id="results">
 		<p class="songFont">Song Name</p>

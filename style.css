@@ -1,21 +1,27 @@
 #nav {
-	width: 80%;
+	width: 78%;
 	height: 35px;
-	margin: 0 auto 0 auto;
+	margin: 0 auto 1% auto;
+	padding: 15px 0 0 15px;
+	font-size: .9em;
+	font-family: Arial;
 	border: 2px solid black;
 	background-color: #FFB4B0;
 }
 #options {
 	float: left;
 	margin: 5px 0 0 10%;
-	width: 21%;
+	padding-left: 10px;
+	width: 19%;
 	border: 2px solid black;
 	background-color: #4DD7fA;
+	font-family: Arial;
+	font-size: .9em;
 }
 #results {
 	float: right;
 	margin: 5px 10% 0 0;
-	width: 57%;
+	width: 58%;
 	border: 2px solid black;
 	background-color: #FEFAC0;
 }
@@ -30,6 +36,12 @@
 	font-family: Arial;
 	margin-left: 5%;
 }
+.headings {
+	margin-bottom: 3px;
+}
 .filterButton {
+	text-align: center;
+}
+table {
 	margin: 0 auto 0 auto;
 }
