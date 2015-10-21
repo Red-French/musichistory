@@ -8,11 +8,11 @@
 </head>
 
 <body>
-	<div id="nav">View Music | <a href="">Add Music</a> | <a href="">Profile</a></div>
+	<div id="nav"><a id="list" href="#">List Music</a> | <a id="add" href="#">Add Music</a> | <a href="#">Profile</a></div>
 	<div id="options">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
-		<p>Artist:</p>
+		<p class="headings">Artist:</p>
 		<select name="artist">
 			<option value="">Options</option>
 			<option value="Hall">Tom T. Hall</option>
@@ -20,10 +20,10 @@
 			<option value="Pride">Charlie Pride</option>
 			<option value="Rodgers">Jimmie Rodgers</option>
 		</select>
-		<p>Album:</p>
+		<p class="headings">Album:</p>
 		<select name="album">
 			<option value="">Options</option>
-			<option value="5and10">Old Five and Dimers Like Me</option>
+			<option value="5and10">Five and Dimers</option>
 			<option value="roadsideBench">Roadside Bench</option>
 			<option value="Live">Live</option>
 			<option value="Brakeman">Brakeman</option>
@@ -54,16 +54,7 @@
 			</table>
 			<button type="button" class="filterButton">Filter</button>
 		</div>
-	<div id="results">
-<!-- 		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p> -->
-	</div>
+	<div id="results"></div>
 <script src="songs.js"></script>
 </body>
 </html>
