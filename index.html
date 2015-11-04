@@ -3,16 +3,86 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NSS Starter Kit</title>
+  <title>BOOTSTRAP</title>
+  <link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-</head>
 
+ <!-- BOOTSTRAP BEGIN -->
+<!-- Latest compiled and minified CSS -->
+
+<!-- BOOTSTRAP END -->
+
+</head>
 <body>
-	<div id="nav">View Music | <a href="">Add Music</a> | <a href="">Profile</a></div>
+<div class="container">
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">UBox</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a id="list" href="#">List Music<span class="sr-only">(current)</span></a></li>
+        <li><a id="add" href="#">Add Music</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Profile</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- <nav class="navbar navbar-default">
+	<div id="nav" class="container-fluid"><a id="list" href="#">List Music</a> | <a id="add" href="#">Add Music</a> | <a href="#">Profile</a></div>
+</nav> -->
+
+<div class="row"> <!-- BS BEGIN -->
+  <div class="col-xs-1, col-md-6"> <!-- BS -->
+
+
 	<div id="options">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
-		<p>Artist:</p>
+		<p class="headings">Artist:</p>
 		<select name="artist">
 			<option value="">Options</option>
 			<option value="Hall">Tom T. Hall</option>
@@ -20,10 +90,10 @@
 			<option value="Pride">Charlie Pride</option>
 			<option value="Rodgers">Jimmie Rodgers</option>
 		</select>
-		<p>Album:</p>
+		<p class="headings">Album:</p>
 		<select name="album">
 			<option value="">Options</option>
-			<option value="5and10">Old Five and Dimers Like Me</option>
+			<option value="5and10">Five and Dimers</option>
 			<option value="roadsideBench">Roadside Bench</option>
 			<option value="Live">Live</option>
 			<option value="Brakeman">Brakeman</option>
@@ -54,16 +124,19 @@
 			</table>
 			<button type="button" class="filterButton">Filter</button>
 		</div>
-	<div id="results">
-<!-- 		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p> -->
-	</div>
-<script src="songs.js"></script>
+</div> <!-- BS -->
+
+
+
+  <div class="col-xs-11, col-md-6">
+  		<div id="results"></div>
+  </div> <!-- BS -->
+</div> <!-- BS END -->
+
+</div>
+<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="javascripts/ajax.js"></script>
 </body>
 </html>
