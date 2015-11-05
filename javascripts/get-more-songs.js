@@ -1,9 +1,9 @@
 define(["jquery"],
   function($) {
-  console.log("inside populate-songs");
+  console.log("inside get-more-songs");
   return {
     getMeSomeData: function(callbackFunctionReference) {
-      console.log("inside function");
+      // console.log("inside get-more-songs function");
       $.ajax({url: "javascripts/more-songs.json",
       }).done(function(firstSongsReturned) {
         callbackFunctionReference(firstSongsReturned);

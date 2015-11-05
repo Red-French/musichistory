@@ -1,58 +1,34 @@
-
-// define(["jquery"], function($) {
-//   return {
-//     getMeSomeData: function(callbackFunctionReference) {
-//       $.ajax({...}).done(function(jsonDataSentByjQuery) {
-//         callbackFunctionReference(jsonDataSentByjQuery);
-//       }
-//     }
-//   }
-// });
-
 define(["jquery"],
   function($) {
   console.log("inside populate-songs");
   return {
     getMeSomeData: function(callbackFunctionReference) {
-      console.log("inside function");
-      $.ajax({url: "javascripts/songArray.json",
+      // console.log("inside function");
+      $.ajax({url: "javascripts/songArray.json"
       }).done(function(firstSongsReturned) {
         callbackFunctionReference(firstSongsReturned);
-      })  
+      })
     }
   }
 })
 
 
+
 //////////Luke Wrote This////////////////
-// function add(a, b) {
+// function add(a, b) {  --> called from callbackFunction below
 //   returns a + b;
 // }
 
 // add(1, 2);
 
-// function math(a, b, callbackFunction) {
-//   callbackFunction(a, b);
+// function math(a, b, callbackFunction) {  --> a=1, b=2, cbf=add function
+//   callbackFunction(a, b);  --> perform add(a, b)
 // }
 
-// math(1, 2, add);
+// math(1, 2, add);  --> perform math function, pass in 1, 2, add function
 ///////^^^Luke Wrote This^^^/////////////
 
 
-
-// function callme (numA, callback) {
-//   var newNum = numA * 10;
-//   callback(newNum);
-// }
-
-// function later (numB) {
-//   console.log("final", numB * 8);
-// }
-
-// callme(5, later);
-
-
-// });
 
     // define( [], function() {
     // console.log("inside populate-songs.js");
@@ -81,9 +57,6 @@ define(["jquery"],
 //        songbox.append(string);
 //      });
 // }
-
-
-
 
 
 //   return {

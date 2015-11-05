@@ -1,50 +1,55 @@
 requirejs.config({
   baseUrl: "./javascripts",
   paths:{
-    "jquery": "../lib/bower_components/jquery/dist/jquery.min"
+    "jquery": "../lib/bower_components/jquery/dist/jquery.min",
+    "hbs": "../lib/bower_components/require-handlebars-plugin/hbs"
+  },
+  shim: { // WHAT'S THIS?
+  "bootstrap": ["jquery"]
   }
 });
 
 require(
-  ["populate-songs", "get-more-songs"], 
-  function(populate_songs, get_more_songs) {
-  	populate_songs.getMeSomeData(addSong),
-  	get_more_songs.getMeSomeData(addSong);
+  ["hbs", "populate-songs", "get-more-songs", "add-songs", "delete-song"], 
+  function(Handlebars, populate_songs, get_more_songs, add_songs, delete_song) {
 
-
-	function addSong(songArray) {
-	  console.log("in addSong function");
-	  console.log(songArray);
-	  var results = $("#results");
-	  // for (var i = 0; i < songArray.length; i++) {
-	  songArray.songs.forEach(function(song){
-	  var string = "<div>" + song.title + " " + song.artist + " " + song.album + "<input class='clear-message' type='button' value='Delete'>" + "</div>";
-	  results.append(string);
+	  populate_songs.getMeSomeData(function(songs) {
+	    require(["hbs!../templates/songs"], function(songTemplate) {
+	      $("#results").html(songTemplate(songs));
+	    });
 	  });
-	  // $("#results").after("<button type='button' id='moreButton'>More</button>");
-	}
-  }
-);
 
-  // DELETE INDIVIDUAL SONGS
-  document.querySelector("body").addEventListener("click", function(event) {
-    // console.log(event);
-    if (event.target.className === "clear-message") {
-      // console.log("You clicked on `Delete Message`");
-      // console.log(event.target.parentElement);
-      // console.log("events:", event);
-      // event.target.parentElement.innerHTML = "";
-      event.target.parentElement.setAttribute("hidden", true);
-    }
-    // if (messageBoard.innerHTML.length < 1) {     // WORK ON THIS
-    //  clearAll.disabled = true;
-    // }
-    $("#moreButton").click(function() {
-      $.ajax({
-      url: "get-more-songs.js"
-    }).done(addSong);
-    });
-  });
+	  get_more_songs.getMeSomeData(function(songs) {
+	    require(["hbs!../templates/songs"], function(songTemplate) {
+	      $("#results").append(songTemplate(songs));
+	    });
+	  });
+});
+
+// require(
+// 	["hbs!../templates/songs"], 
+// 	function(songTemplate) {
+// 	$("#results").html(songTemplate(songs));	
+// });
+
+
+// function loopSongs(songObject) { // Steve example in class
+
+// }
+
+
+	// function addSong(songArray) {
+	//   console.log("in addSong function");
+	//   console.log(songArray);
+	//   var results = $("#results");
+	//   // for (var i = 0; i < songArray.length; i++) {
+	//   songArray.songs.forEach(function(song){
+	//   var string = "<div>" + song.title + " " + song.artist + " " + song.album + "<input class='clear-message' type='button' value='Delete'>" + "</div>";
+	//   results.append(string);
+	//   });
+	//   // $("#results").after("<button type='button' id='moreButton'>More</button>");
+	// }
+
 
 // James explaining BEGIN
 // require(
