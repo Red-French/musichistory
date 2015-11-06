@@ -2,10 +2,14 @@ define(["jquery"], function() {
 var songDetail = "";
 var songs = [];
 var results = $("#results");
+console.log("inside add-songs");
+var htmlString = $("#results").html();
+// console.log("htmlString = ", htmlString);
 
 	// DISPLAYS ADD-SONG FORM VIA 'ADD' BUTTON IN NAV
 	$("#add").click(function() {
-	// console.log("add clicked");
+	htmlString = $("#results").html();
+	console.log("in add-click", htmlString);
 	results.html("<p>Song: <input id='newTune' class='inputButton' type='text' value=''></p>" + "<p>Artist: <input id='newArtist' class='inputButton' type='text' value=''></p>" + "<p>Album: <input id='newAlbum' class='inputButton' type='text' value=''></p>" + "<p><input class='addToSongList' type='button' value='Add Song to List'></p>");
 	});
 
@@ -13,7 +17,11 @@ var results = $("#results");
 	// SHOWS SONG LIST)
 	$("#list").click(function() {
   	console.log("list clicked");
-  	results.html(songArray);
+	results.html(htmlString);
+
+
+// $("#results").show();
+  	// results.html();
   	});
 
 
