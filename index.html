@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- To ensure proper rendering and touch zooming -->
 
-  <title>BOOTSTRAP</title>
+  <title>HANDLEBARS</title>
   <link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
@@ -132,7 +132,16 @@
 
 
   <div class="col-xs-6, col-md-6"> <!-- BS -->
-  		<div id="results"></div>
+<!--   {{#each songs}}
+  <div>
+    <div>
+      <h3>{{title}}</h3>
+      Performed by {{artist}} on the album {{album}}
+    </div>
+  </div>
+{{/each}}
+ -->
+  		<div id="results"></div>  <!-- create 2nd div and hide/show 'add music' and 'list' -->
   </div> <!-- BS -->
 </div> <!-- BS END -->
 

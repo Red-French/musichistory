@@ -11,6 +11,7 @@ var htmlString = $("#results").html();
 	htmlString = $("#results").html();
 	console.log("in add-click", htmlString);
 	results.html("<p>Song: <input id='newTune' class='inputButton' type='text' value=''></p>" + "<p>Artist: <input id='newArtist' class='inputButton' type='text' value=''></p>" + "<p>Album: <input id='newAlbum' class='inputButton' type='text' value=''></p>" + "<p><input class='addToSongList' type='button' value='Add Song to List'></p>");
+	addSong(songs);
 	});
 
 
@@ -83,3 +84,4 @@ var htmlString = $("#results").html();
 	});
 });
 
+	

@@ -1,6 +1,4 @@
-// $(document).ready(function() { // BEGIN JQUERY WRAP
 define(["jquery"], function() {
-	  // All the JavaScript that depends on jQuery will be written here
 var songDetail = "";
 var songs = [];
 
