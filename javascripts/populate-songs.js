@@ -1,18 +1,47 @@
 define(["jquery"],
   function($) {
   console.log("inside populate-songs");
+
+
+
+
+// TRYING TO POPULATE DROPDOWN BOXES
+// TRYING TO POPULATE DROPDOWN BOXES
+// TRYING TO POPULATE DROPDOWN BOXES
+
+  // $.ajax({url: "https://crackling-torch-4807.firebaseio.com/songs.json"
+  // }).done(function() {
+  //   $.each(data, function(i, item){
+  //     console.log("inside ajax");
+  //   $("#artist"+item.artist).val(item.value);
+  //   }); 
+  // })
+
+
+
   return {
     getMeSomeData: function(callbackFunctionReference) {
       // console.log("inside function");
-      $.ajax({url: "javascripts/songArray.json"
+      $.ajax({url: "https://crackling-torch-4807.firebaseio.com/.json"
       }).done(function(firstSongsReturned) {
         callbackFunctionReference(firstSongsReturned);
       })
     }
   }
+
 })
 
 
+
+
+  //   getMeSomeData: function(callbackFunctionReference) {
+  //     // console.log("inside function");
+  //     $.ajax({url: "javascripts/songArray.json"
+  //     }).done(function(firstSongsReturned) {
+  //       callbackFunctionReference(firstSongsReturned);
+  //     })
+  //   }
+  // }
 
 //////////Luke Wrote This////////////////
 // function add(a, b) {  --> called from callbackFunction below

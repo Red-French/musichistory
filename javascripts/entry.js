@@ -10,8 +10,8 @@ requirejs.config({
 });
 
 require(
-  ["hbs", "populate-songs", "get-more-songs", "add-songs", "delete-song"], 
-  function(Handlebars, populate_songs, get_more_songs, add_songs, delete_song) {
+  ["hbs", "populate-songs", "add-songs", "delete-song"], 
+  function(Handlebars, populate_songs, add_songs, delete_song) {
 
 	  populate_songs.getMeSomeData(function(songs) {
 	    require(["hbs!../templates/songs"], function(songTemplate) {
@@ -19,12 +19,21 @@ require(
 	    });
 	  });
 
-	  get_more_songs.getMeSomeData(function(songs) {
-	    require(["hbs!../templates/songs"], function(songTemplate) {
-	      $("#results").append(songTemplate(songs));
-	    });
-	  });
+	  // 	  populate_songs.getMeSomeData(function(songs) {
+	  //   require(["hbs!../templates/songs"], function(songTemplate) {
+	  //     $("#results").html(songTemplate(songs));
+	  //   });
+	  // });
+
+	  // get_more_songs.getMeSomeData(function(songs) {
+	  //   require(["hbs!../templates/songs"], function(songTemplate) {
+	  //     $("#results").append(songTemplate(songs));
+	  //   });
+	  // });
 });
+
+
+
 
 
 // require(
