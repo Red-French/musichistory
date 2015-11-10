@@ -42,12 +42,19 @@ console.log("inside add-songs");
 	$("#list").click(function() {
 	// WHY NOT AN AJAX CALL??
 	// HOW WOULD I DO THIS USING SHOW/HIDE??
-	    require(["hbs!../templates/songs"], function(songTemplate) {
+	    require(["hbs!../templates/songs"], function(songTemplate) {  // ??? NOT WORKING
 	    // NEEDS INSERTING IN TEMPLATE
-	    $( "#results" ).load( "https://crackling-torch-4807.firebaseio.com/songs.json" );
+	    $("#results").load("https://crackling-torch-4807.firebaseio.com/songs.json");
   		});
 	});
 });
+
+
+	$("#filterButton").click(function(){
+		console.log("filter click");
+	});
+
+
 
 
 // 	$.ajax({

@@ -13,23 +13,34 @@ require(
   ["hbs", "populate-songs", "add-songs", "delete-song"], 
   function(Handlebars, populate_songs, add_songs, delete_song) {
 
-	  populate_songs.getMeSomeData(function(songs) {
+// LOAD SONG LIST ON PAGE LOAD
+	populate_songs.getMeSomeData(function(songs) {
+		console.log(songs);
 	    require(["hbs!../templates/songs"], function(songTemplate) {
-	      $("#results").html(songTemplate(songs));
-	    });
-	  });
+	    	$("#results").html(songTemplate(songs));
+		});
 
-	  // 	  populate_songs.getMeSomeData(function(songs) {
-	  //   require(["hbs!../templates/songs"], function(songTemplate) {
-	  //     $("#results").html(songTemplate(songs));
-	  //   });
-	  // });
+// LOAD ARTIST DROPDOWN
+    	require(["hbs!../templates/artist"], function(dropdownTemplate) {
+	    	$("#artist").prepend(dropdownTemplate(songs));
+		});
+
+// LOAD ALBUM DROPDOWN
+		require(["hbs!../templates/album"], function(dropdownTemplate) {
+    		$("#album").prepend(dropdownTemplate(songs));
+		});
+
+		require(["hbs!../templates/title"], function(dropdownTemplate) {
+    		$("#songTitle").prepend(dropdownTemplate(songs));
+		});
+
 
 	  // get_more_songs.getMeSomeData(function(songs) {
 	  //   require(["hbs!../templates/songs"], function(songTemplate) {
 	  //     $("#results").append(songTemplate(songs));
 	  //   });
 	  // });
+	});
 });
 
 

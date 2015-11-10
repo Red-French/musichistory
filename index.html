@@ -86,20 +86,13 @@
 		<input type="range" name="Length" min="2" max="5">
 		<p class="headings">Artist:</p>
 		<select id="artist">
-			<option value="">Options</option>
-			<option value="Hall">Tom T. Hall</option>
-			<option value="Rodriquez">Johnnie Rodriquez</option>
-			<option value="Pride">Charlie Pride</option>
-			<option value="Rodgers">Jimmie Rodgers</option>
 		</select>
 		<p class="headings">Album:</p>
-		<select name="album">
-			<option value="">Options</option>
-			<option value="5and10">Five and Dimers</option>
-			<option value="roadsideBench">Roadside Bench</option>
-			<option value="Live">Live</option>
-			<option value="Brakeman">Brakeman</option>
+		<select id="album">
 		</select>
+    <p class="headings">Song:</p>
+    <select id="songTitle">
+    </select>
 		<p>Genre:</p>
 			<table>
 				<tr>
@@ -124,7 +117,7 @@
 					</td>
 				</tr>
 			</table>
-			<button type="button" class="filterButton">Filter</button>
+			<button type="button" id="filterButton">Filter</button>
 		</div>
 </div> <!-- BS -->
 
@@ -141,7 +134,7 @@
   </div>
 {{/each}}
  -->
-  		<div id="results"></div>  <!-- create 2nd div and hide/show 'add music' and 'list'? -->
+  		<div id="results"></div>
   </div> <!-- BS -->
 </div> <!-- BS END -->
 
