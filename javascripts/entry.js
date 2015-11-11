@@ -20,19 +20,8 @@ require(
 	    	$("#results").html(songTemplate(songs));
 		});
 
-// LOAD ARTIST DROPDOWN
-    	require(["hbs!../templates/artist"], function(dropdownTemplate) {
-	    	$("#artist").prepend(dropdownTemplate(songs));
-		});
-
-// LOAD ALBUM DROPDOWN
-		require(["hbs!../templates/album"], function(dropdownTemplate) {
-    		$("#album").prepend(dropdownTemplate(songs));
-		});
-
-		require(["hbs!../templates/title"], function(dropdownTemplate) {
-    		$("#songTitle").prepend(dropdownTemplate(songs));
-		});
+// LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
+	populate_songs.loadSelectOptions(songs);
 
 
 	  // get_more_songs.getMeSomeData(function(songs) {
