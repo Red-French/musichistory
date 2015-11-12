@@ -2,9 +2,6 @@ define(["jquery"],
   function($) {
   console.log("inside populate-songs");
 
-// put .change on select boxes
-
-
 // CALLED FROM ENTRY.JS TO LOAD SONG LIST ON PAGE LOAD
   return {
     getMeSomeData: function(callbackFunctionReference) {

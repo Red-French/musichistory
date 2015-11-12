@@ -2,7 +2,8 @@ requirejs.config({
   baseUrl: "./javascripts",
   paths:{
     "jquery": "../lib/bower_components/jquery/dist/jquery.min",
-    "hbs": "../lib/bower_components/require-handlebars-plugin/hbs"
+    "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
+    "lodash": "../lib/bower_components/lodash/lodash.min"
   },
   shim: { // WHAT'S THIS?
   "bootstrap": ["jquery"]
@@ -10,12 +11,12 @@ requirejs.config({
 });
 
 require(
-  ["hbs", "populate-songs", "add-songs", "delete-song"], 
-  function(Handlebars, populate_songs, add_songs, delete_song) {
+  ["hbs", "lodash", "populate-songs", "add-songs", "delete-song"], 
+  function(Handlebars, _, populate_songs, add_songs, delete_song) {
 
 // LOAD SONG LIST ON PAGE LOAD
 	populate_songs.getMeSomeData(function(songs) {
-		console.log(songs);
+		console.log("inside entry.js = ", songs);
 	    require(["hbs!../templates/songs"], function(songTemplate) {
 	    	$("#results").html(songTemplate(songs));
 		});
