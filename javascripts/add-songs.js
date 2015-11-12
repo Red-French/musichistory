@@ -56,7 +56,7 @@ var chosenArtist;
 		populate_songs.getMeSomeData(function(songs) {
 console.log("inside filter-click = ", songs);
 		chosenArtist = $("#artist").val();
-console.log("chosen Artist = ", chosenArtist);
+// console.log("chosen Artist = ", chosenArtist);
 		
 
 		// var ref = new Firebase(fbUrl+"/artist").equalTo("NRBQ");
@@ -161,34 +161,32 @@ console.log("From songTitleArray, uniqueSongs = ", uniqueSongs);
 
 
 
-
 // LOOP (W/ FOR-IN LOOP) THROUGH SONGLIST ARRAY-OBJECT TO FIND INFO THAT MATCHES USER'S CHOICE
+console.log("chosenArtist is = ", chosenArtist);
+// console.log(songs.songs)
 for (var property in songs.songs) {
-	console.log("1:" + property + " 2:" + songs.songs[property] + "3:" + songs[property]);
-		console.log(songs.songs[property]);
-	// 	if (property === "johnny") {
-	// 		console.log("johnny found!");
-	// }
-	// console.log("chosenArtist = ", chosenArtist);
-	if (songs.songs[property] === chosenArtist) {
+		// console.log(songs.songs[property]);
+	if (songs.songs[property].artist === chosenArtist) {
 		console.log("'for-in' says artist = ", chosenArtist);
-	}
-}
+		console.log("songs.songs[property] = ", songs.songs[property]);
+
+		var output = {
+			songs: {
+			}
+		}
+
+		output.songs[property] = songs.songs[property];
+		console.log(songs.songs[property]);
+		console.log("output = ", output);
+
+		require(["hbs!../templates/songs"], function(songTemplate) {
+    	$("#results").html(songTemplate(output));
+
+		});
+	};
+};
 
 
-
-
-
-// TEST FOR/IN LOOP
-var capitals = {
-	TN: "Nashville",
-	KY: "Frankfort",
-	AL: "Montgomery"
-}
-for (state in capitals) {
-	// console.log("inside for in loop");
-	console.log("The capital of " + state + " is " + capitals[state]);
-}
 
 
 
@@ -213,5 +211,3 @@ for (state in capitals) {
 		});
 	});
 });
-
-

@@ -32,13 +32,13 @@ require(
 
 
 // Create a reference to your Firebase database
-	var myFirebaseRef = new Firebase("https://nss-demo-instructor.firebaseio.com");
+	// var myFirebaseRef = new Firebase("https://crackling-torch-4807.firebaseio.com/songs.json");
 
 // Listen for when anything changes on the "songs" key
-	myFirebaseRef.child("songs").on("value", function(snapshot) {
+	// myFirebaseRef.child("songs").on("value", function(snapshot) {
 
 // Store the entire songs key in a local variable
-	var allSongsObject = snapshot.val();
+	// var allSongsObject = snapshot.val();
 
 // Bind the allSongsObject to the song list Handlebar template
 
@@ -46,7 +46,7 @@ require(
 
 // Bind the unique albums to the albums template
 
-	});
+	// });
 });
 
 
@@ -115,4 +115,3 @@ require(
 
 // ["bread"]), function(bread) {
 // }
-
