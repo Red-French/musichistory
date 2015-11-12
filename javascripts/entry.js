@@ -3,16 +3,20 @@ requirejs.config({
   paths:{
     "jquery": "../lib/bower_components/jquery/dist/jquery.min",
     "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
-    "lodash": "../lib/bower_components/lodash/lodash.min"
+    "lodash": "../lib/bower_components/lodash/lodash.min",
+    "firebase": "../lib/bower_components/firebase/firebase"
   },
   shim: { // WHAT'S THIS?
-  "bootstrap": ["jquery"]
+  "bootstrap": ["jquery"],
+  "firebase": {
+    exports: "Firebase"
+	}
   }
 });
 
 require(
-  ["hbs", "lodash", "populate-songs", "add-songs", "delete-song"], 
-  function(Handlebars, _, populate_songs, add_songs, delete_song) {
+  ["hbs", "lodash", "firebase", "populate-songs", "add-songs", "delete-song"], 
+  function(Handlebars, _, Firebase, populate_songs, add_songs, delete_song) {
 
 // LOAD SONG LIST ON PAGE LOAD
 	populate_songs.getMeSomeData(function(songs) {
@@ -24,12 +28,24 @@ require(
 // LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
 	populate_songs.loadSelectOptions(songs);
 
+	});
 
-	  // get_more_songs.getMeSomeData(function(songs) {
-	  //   require(["hbs!../templates/songs"], function(songTemplate) {
-	  //     $("#results").append(songTemplate(songs));
-	  //   });
-	  // });
+
+// Create a reference to your Firebase database
+	var myFirebaseRef = new Firebase("https://nss-demo-instructor.firebaseio.com");
+
+// Listen for when anything changes on the "songs" key
+	myFirebaseRef.child("songs").on("value", function(snapshot) {
+
+// Store the entire songs key in a local variable
+	var allSongsObject = snapshot.val();
+
+// Bind the allSongsObject to the song list Handlebar template
+
+// Bind the unique artists to the artists template
+
+// Bind the unique albums to the albums template
+
 	});
 });
 

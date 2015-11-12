@@ -163,8 +163,9 @@ console.log("From songTitleArray, uniqueSongs = ", uniqueSongs);
 
 
 // LOOP (W/ FOR-IN LOOP) THROUGH SONGLIST ARRAY-OBJECT TO FIND INFO THAT MATCHES USER'S CHOICE
-for (property in songs.songs) {
-	console.log("1:" + property + " 2:" + songs[property] + " 3:" + songs.songs[property]);
+for (var property in songs.songs) {
+	console.log("1:" + property + " 2:" + songs.songs[property] + "3:" + songs[property]);
+		console.log(songs.songs[property]);
 	// 	if (property === "johnny") {
 	// 		console.log("johnny found!");
 	// }
@@ -178,7 +179,7 @@ for (property in songs.songs) {
 
 
 
-// TEST/PLAY WITH FOR/IN LOOP
+// TEST FOR/IN LOOP
 var capitals = {
 	TN: "Nashville",
 	KY: "Frankfort",
