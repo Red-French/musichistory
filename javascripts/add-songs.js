@@ -50,25 +50,14 @@ console.log("inside list-click = ", songs);
 	});
 
 var chosenArtist;
+var chosenAlbum;
 
 // LOAD CHOSEN SONG INTO DIV#RESULTS
 	$("#filterButton").click(function(){
 		populate_songs.getMeSomeData(function(songs) {
 console.log("inside filter-click = ", songs);
 		chosenArtist = $("#artist").val();
-// console.log("chosen Artist = ", chosenArtist);
-		
-
-		// var ref = new Firebase(fbUrl+"/artist").equalTo("NRBQ");
-		// console.log("ref = ", ref);
-
-			// $.ajax({
-			// 	url: "https://crackling-torch-4807.firebaseio.com/songs.json",
-			// 	method: "GET",
-			// 	// data: JSON.stringify(info)
-			// 	}).done(function(info) { 
-			// 	console.log(info);
-			// });
+		chosenAlbum = $("#album").val();
 
 	// lodash
 	// define(["lodash"], function(_) {	  IF I'M DEALING W/ AN ARRAY, LODASH NEEDS TO BE DEFINED AS AN ARRAY????
@@ -162,33 +151,56 @@ console.log("From songTitleArray, uniqueSongs = ", uniqueSongs);
 
 
 // LOOP (W/ FOR-IN LOOP) THROUGH SONGLIST ARRAY-OBJECT TO FIND INFO THAT MATCHES USER'S CHOICE
+if (chosenArtist !== "Choose Artist") {
 console.log("chosenArtist is = ", chosenArtist);
-// console.log(songs.songs)
-for (var property in songs.songs) {
-		// console.log(songs.songs[property]);
-	if (songs.songs[property].artist === chosenArtist) {
-		console.log("'for-in' says artist = ", chosenArtist);
-		console.log("songs.songs[property] = ", songs.songs[property]);
+	for (var property in songs.songs) {
+			// console.log(songs.songs[property]);
+		if (songs.songs[property].artist === chosenArtist) {
+			console.log("'for-in' says artist = ", chosenArtist);
+			console.log("songs.songs[property] = ", songs.songs[property]);
 
-		var output = {
-			songs: {
+			var output = {  // 'dummy' object to store info of song chosen due to handlebars looking for 'songs'.
+				songs: {
+				}
 			}
-		}
 
-		output.songs[property] = songs.songs[property];
-		console.log(songs.songs[property]);
-		console.log("output = ", output);
+			output.songs[property] = songs.songs[property]; // moves chosen song info into 'dummy' object created above.
+			console.log(songs.songs[property]);
+			console.log("output = ", output);
 
-		require(["hbs!../templates/songs"], function(songTemplate) {
-    	$("#results").html(songTemplate(output));
+			require(["hbs!../templates/songs"], function(songTemplate) {
+	    	$("#results").html(songTemplate(output));
 
-		});
+			});
+		};
 	};
 };
 
+// LOOP (W/ FOR-IN LOOP) THROUGH SONGLIST ARRAY-OBJECT TO FIND INFO THAT MATCHES USER'S CHOICE
+if (chosenAlbum !== "Choose Album") {
+console.log("chosenAlbum is = ", chosenAlbum);
+	for (var property in songs.songs) {
+			// console.log(songs.songs[property]);
+		if (songs.songs[property].album === chosenAlbum) {
+			console.log("'for-in' says album = ", chosenAlbum);
+			console.log("songs.songs[property] = ", songs.songs[property]);
 
+			var output = {  // 'dummy' object to store info of song chosen due to handlebars looking for 'songs'.
+				songs: {
+				}
+			}
 
+			output.songs[property] = songs.songs[property]; // moves chosen song info into 'dummy' object created above.
+			console.log(songs.songs[property]);
+			console.log("output = ", output);
 
+			require(["hbs!../templates/songs"], function(songTemplate) {
+	    	$("#results").html(songTemplate(output));
+
+			});
+		};
+	};
+};
 
 
 

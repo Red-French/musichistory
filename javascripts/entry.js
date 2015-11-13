@@ -4,7 +4,8 @@ requirejs.config({
     "jquery": "../lib/bower_components/jquery/dist/jquery.min",
     "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
     "lodash": "../lib/bower_components/lodash/lodash.min",
-    "firebase": "../lib/bower_components/firebase/firebase"
+    "firebase": "../lib/bower_components/firebase/firebase",
+    'q': '../bower_components/q/q'
   },
   shim: { // WHAT'S THIS?
   "bootstrap": ["jquery"],
@@ -13,10 +14,10 @@ requirejs.config({
 	}
   }
 });
-
+var songs;
 require(
-  ["hbs", "lodash", "firebase", "populate-songs", "add-songs", "delete-song"], 
-  function(Handlebars, _, Firebase, populate_songs, add_songs, delete_song) {
+  ["hbs", "lodash", "firebase", "populate-songs", "add-songs", "delete-song", "refresh"], 
+  function(Handlebars, _, Firebase, populate_songs, add_songs, delete_song, refresh) {
 
 // LOAD SONG LIST ON PAGE LOAD
 	populate_songs.getMeSomeData(function(songs) {
@@ -27,7 +28,6 @@ require(
 
 // LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
 	populate_songs.loadSelectOptions(songs);
-
 	});
 
 
