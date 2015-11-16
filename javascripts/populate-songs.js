@@ -13,6 +13,7 @@ define(["jquery"],
 // CALLED FROM ADD-SONGS.JS TO RE-LOAD SELECT OPTIONS WHEN 'ADD SONG TO LIST' BUTTON IS CLICKED
     loadSelectOptions: function(songs) {
       console.log("inside loadSelectOptions!!!!");
+
     // LOAD ARTIST DROPDOWN
         require(["hbs!../templates/artist"], function(dropdownTemplate) {
           $("#artist").append(dropdownTemplate(songs));
@@ -23,7 +24,7 @@ define(["jquery"],
           $("#album").append(dropdownTemplate(songs));
       });
 
-  //  LOAD SONG DROPDOWN
+  //  LOAD SONG DROPDOWN (NOT CURRENTLY USED)
       require(["hbs!../templates/title"], function(dropdownTemplate) {
           $("#songTitle").append(dropdownTemplate(songs));
       });

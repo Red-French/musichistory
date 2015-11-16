@@ -5,7 +5,7 @@ requirejs.config({
     "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
     "lodash": "../lib/bower_components/lodash/lodash.min",
     "firebase": "../lib/bower_components/firebase/firebase",
-    'q': '../bower_components/q/q'
+    'q': '../lib/bower_components/q/q'
   },
   shim: { // WHAT'S THIS?
   "bootstrap": ["jquery"],
@@ -14,68 +14,62 @@ requirejs.config({
 	}
   }
 });
-var songs;
+// var songs;
 require(
-  ["hbs", "lodash", "firebase", "populate-songs", "add-songs", "delete-song", "refresh"], 
-  function(Handlebars, _, Firebase, populate_songs, add_songs, delete_song, refresh) {
+  ["hbs", "lodash", "firebase", "populate-songs", "misc_scripts", "delete-song", "refresh"], 
+  function(Handlebars, _, Firebase, populate_songs, misc_scripts, delete_song, refresh) {
 
 // LOAD SONG LIST ON PAGE LOAD
-	populate_songs.getMeSomeData(function(songs) {
-		console.log("inside entry.js = ", songs);
-	    require(["hbs!../templates/songs"], function(songTemplate) {
-	    	$("#results").html(songTemplate(songs));
-		});
+// 	populate_songs.getMeSomeData(function(songs) {
+// 		console.log("inside entry.js = ", songs);
+// 	    require(["hbs!../templates/songs"], function(songTemplate) {
+// 	    	$("#results").html(songTemplate(songs));
+// 		});
 
-// LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
-	populate_songs.loadSelectOptions(songs);
-	});
+// // LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
+// 	populate_songs.loadSelectOptions(songs);
+// 	});
 
 
-// Create a reference to your Firebase database
-	// var myFirebaseRef = new Firebase("https://crackling-torch-4807.firebaseio.com/songs.json");
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Once you get this working, click on one of the delete buttons, or add a new song, 
+// and the on("value") event will trigger immediately and your view of songs updates.
+
+// Create a reference to your Firebase database (the root of my Firebase)
+	var myFirebaseRef = new Firebase("https://crackling-torch-4807.firebaseio.com");
 
 // Listen for when anything changes on the "songs" key
-	// myFirebaseRef.child("songs").on("value", function(snapshot) {
+	myFirebaseRef.child("songs").on("value", function(snapshot) {
 
 // Store the entire songs key in a local variable
-	// var allSongsObject = snapshot.val();
+	var songs = snapshot.val();
+	console.log("songs = ", songs);
 
 // Bind the allSongsObject to the song list Handlebar template
+    require(["hbs!../templates/songs"], function(songTemplate) {
+		$("#results").html(songTemplate({songs}));  // turned array into an object of array with 
+													// name of 'songs' since handlebars is looking
+													// for key of songs
 
 // Bind the unique artists to the artists template
+	// require(["hbs!../templates/artist"], function(artistTemplate) {
+	// (artistTemplate(uniqueArtists));
 
 // Bind the unique albums to the albums template
+	// require(["hbs!../templates/album"], function(albumTemplate) {
+	// (albumTemplate(uniqueAlbums));
 
-	// });
+
+
+	// })
+	// })
+	});
+	});
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 });
 
-
-
-
-
-// require(
-// 	["hbs!../templates/songs"], 
-// 	function(songTemplate) {
-// 	$("#results").html(songTemplate(songs));	
-// });
-
-
-// function loopSongs(songObject) { // Steve example in class
-
-// }
-
-
-	// function addSong(songArray) {
-	//   console.log("in addSong function");
-	//   console.log(songArray);
-	//   var results = $("#results");
-	//   // for (var i = 0; i < songArray.length; i++) {
-	//   songArray.songs.forEach(function(song){
-	//   var string = "<div>" + song.title + " " + song.artist + " " + song.album + "<input class='clear-message' type='button' value='Delete'>" + "</div>";
-	//   results.append(string);
-	//   });
-	//   // $("#results").after("<button type='button' id='moreButton'>More</button>");
-	// }
 
 
 // James explaining BEGIN
