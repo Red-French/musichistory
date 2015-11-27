@@ -7,10 +7,10 @@ define(["jquery"],
       $.ajax({url: "javascripts/more-songs.json",
       }).done(function(firstSongsReturned) {
         callbackFunctionReference(firstSongsReturned);
-      })  
+      });
     }
-  }
-})
+  };
+});
 
 
 // define( [], function() {

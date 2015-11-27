@@ -8,19 +8,29 @@ define(["jquery"],
       $.ajax({url: "https://crackling-torch-4807.firebaseio.com/.json"
       }).done(function(firstSongsReturned) {
         callbackFunctionReference(firstSongsReturned);
-      })
-    },
+      });
+    }
+  };
+
+  return {
 // CALLED FROM ADD-SONGS.JS TO RE-LOAD SELECT OPTIONS WHEN 'ADD SONG TO LIST' BUTTON IS CLICKED
     loadSelectOptions: function(songs) {
       console.log("inside loadSelectOptions!!!!");
+      $.ajax({url: "https://crackling-torch-4807.firebaseio.com/.json"
+      }).done(function(songs) {
+
+
+      console.log("songs = ", songs);
 
     // LOAD ARTIST DROPDOWN
         require(["hbs!../templates/artist"], function(dropdownTemplate) {
+          console.log("inside LOAD ARTIST DROPDOWN");
           $("#artist").append(dropdownTemplate(songs));
       });
 
   // LOAD ALBUM DROPDOWN
       require(["hbs!../templates/album"], function(dropdownTemplate) {
+        console.log("INSIDE LOAD ALBUM DROPDOWN");
           $("#album").append(dropdownTemplate(songs));
       });
 
@@ -28,10 +38,10 @@ define(["jquery"],
       require(["hbs!../templates/title"], function(dropdownTemplate) {
           $("#songTitle").append(dropdownTemplate(songs));
       });
-    }
+    });
   }
-
-})
+};
+});
 
 
 

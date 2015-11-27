@@ -16,8 +16,8 @@ requirejs.config({
 });
 // var songs;
 require(
-  ["hbs", "lodash", "firebase", "populate-songs", "misc_scripts", "delete-song", "refresh"], 
-  function(Handlebars, _, Firebase, populate_songs, misc_scripts, delete_song, refresh) {
+  ["hbs", "lodash", "firebase", "populate-songs", "handlers", "delete-song", "refresh"], 
+  function(Handlebars, _, Firebase, populate_songs, handlers, delete_song, refresh) {
 
 // LOAD SONG LIST ON PAGE LOAD
 // 	populate_songs.getMeSomeData(function(songs) {
@@ -27,7 +27,7 @@ require(
 // 		});
 
 // // LOAD ARTIST DROPDOWN SELECT OPTIONS ON PAGE LOAD
-// 	populate_songs.loadSelectOptions(songs);
+	// populate_songs.loadSelectOptions(songs);
 // 	});
 
 
@@ -44,13 +44,15 @@ require(
 
 // Store the entire songs key in a local variable
 	var songs = snapshot.val();
-	console.log("songs = ", songs);
+	// console.log("songs = ", songs);
 
 // Bind the allSongsObject to the song list Handlebar template
     require(["hbs!../templates/songs"], function(songTemplate) {
 		$("#results").html(songTemplate({songs}));  // turned array into an object of array with 
 													// name of 'songs' since handlebars is looking
 													// for key of songs
+// Loads/refreshes dropdown menus
+	refresh.getMeSomeData();
 
 // Bind the unique artists to the artists template
 	// require(["hbs!../templates/artist"], function(artistTemplate) {

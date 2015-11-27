@@ -19,7 +19,7 @@
   // });
 
 // DELETE SONG ON DELETE-BUTTON CLICK
-define(["jquery", "q", "populate-songs", , "add_songs", "refresh"], 
+define(["jquery", "q", "populate-songs", "add_songs", "refresh"], 
   function($, Q, populate_songs, add_songs, refresh) {
     
 var deferred = Q.defer();
@@ -33,18 +33,17 @@ var deferred = Q.defer();
       method: "DELETE"
     })
     .done(function(response) {
-      $('#addSongModal').modal('show'); 
+      $('#addSongModal').modal('show');
       console.log("response from Firebase:", response);
-
       // You'll likely want to execute the code that you're using
       // on page load here to run the GET XHR and bind to Handlebars
       
       // refresh.getMeSomeData(response);
-    populate_songs.getMeSomeData(function(songs) {
-        require(["hbs!../templates/songs"], function(songTemplate) {
-          $("#results").html(songTemplate(songs));
-      });
-    });
+    // populate_songs.getMeSomeData(function(songs) {
+    //     require(["hbs!../templates/songs"], function(songTemplate) {
+    //       $("#results").html(songTemplate(songs));
+    //   });
+    // });
 
     });
   });
