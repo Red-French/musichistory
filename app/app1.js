@@ -1,4 +1,4 @@
-var app = angular.module("loadSongsApp", []);
+var app = angular.module("MusicApp", []);
 
 app.controller("songLoadCtrl", ["$q", "$http", "$scope", 
 function($q, $http, $scope) {

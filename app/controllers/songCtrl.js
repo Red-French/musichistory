@@ -1,5 +1,5 @@
 app.controller("SongCtrl", 
-  ["$q", "$http", "$scope", "songFactory"
+  ["$q", "$http", "$scope", "songFactory", 
   function($q, $http, $scope, songFactory) {
 
   $scope.searchText = "";
