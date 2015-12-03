@@ -11,5 +11,5 @@ app.config(['$routeProvider',
        templateUrl: 'partials/songForm.html',
        controller: 'MusicCtrl'
      })
-     .otherwise('/songs/list');
+     .otherwise('/songs/list'); // catchall
  }]);

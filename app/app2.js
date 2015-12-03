@@ -19,23 +19,7 @@ app.config(['$routeProvider',
 
 	$scope.searchText = "";
 	$scope.songs = [];
-	// [    
-	// 	{
-	// 	"title": "The Walk",
-	// 	"artist": "Mayer Hawthorne",
-	// 	"album": "How Do You Do"
-	// 	},
-	// 	{
-	// 	"title": "Medicine",
-	// 	"artist": "Grace Potter",
-	// 	"album": "Grace Potter and the Nocturnals"      
-	// 	},
-	// 	{
-	// 	"title": "Legs",
-	// 	"artist": "ZZ Top",
-	// 	"album": "Eliminator"      
-	// 	}
-	// ];
+
 
 	$scope.newSong = {};
 

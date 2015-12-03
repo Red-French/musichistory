@@ -1,4 +1,8 @@
-app.factory("songFactory", function() {
+app.factory("songFactory", 
+["$q", "$http", 
+function($q, $http) {
+
+  var song_list;
 
   // var song_list = [
   //   { id: 1, name: "99 Problems", album: "Black", artist: "JayZ" },
@@ -6,19 +10,25 @@ app.factory("songFactory", function() {
   //   { id: 3, name: "99 Problems", album: "Grey", artist: "DJ Danger Mouse"  }
   // ];
 
-  var loadSongs = $q(function(resolve, reject) {
+  function loadSongs () {
+    return $q(function(resolve, reject) {
       $http.get('../songArray.json')
       .success(
         function(objectFromJSONFile) {
-          // song_list = Object.keys 
+          /* 
+          Convert Firebase's object of objects into an array of objects, and store it in the private variable
+          */
+          song_list = Object.keys(objectFromJSONFile.songs).map(song => objectFromJSONFile.songs[song]);
           resolve(objectFromJSONFile.songs);
         }, function(error) {
           reject(error);
         }
       );
     });
+  }
 
-var songPromise = loadSongs();
+  // Store the promise as a private variable
+  var songPromise = loadSongs();
 
   return {
     loadSongs: function() {
@@ -28,10 +38,10 @@ var songPromise = loadSongs();
       console.log("Factory returning all songs");
       return song_list;
     },
-    getSong: function(id) {
+    getSong: function(name) {
       console.log("Factory returning single song");
       return song_list.filter(function(song){
-        return song.id === id;
+        return song.name === name;
       })[0];
     },
     addSongs: function(songs) {
