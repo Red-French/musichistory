@@ -7,8 +7,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
-	<div id="nav">View Music | <a href="">Add Music</a> | <a href="">Profile</a></div>
+<body ng-app="loadSongsApp">
+	<div id="nav"><a href="/#/songs/list">View Music</a> | <a href="">Add Music</a> | <a href="">Profile</a></div>
 	<div id="options">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
@@ -54,7 +54,15 @@
 			</table>
 			<button type="button" class="filterButton">Filter</button>
 		</div>
-	<div id="results">
+	<div id="results" ng-controller="songLoadCtrl">
+	<div>Angular 101</div>
+	<div ng-repeat="song in songs">{{ song.title }} by {{ song.artist }} on the album {{song.album}}
+	</div>
+	<div>---------</div>
+	<div>Angular 102</div>
+
+	<div ng-view></div>
+
 <!-- 		<p class="songFont">Song Name</p>
 		<p class="songDetails">Artist name | Album name | Genre</p>
 		<p class="songFont">Song Name</p>
@@ -64,6 +72,14 @@
 		<p class="songFont">Song Name</p>
 		<p class="songDetails">Artist name | Album name | Genre</p> -->
 	</div>
-<script src="songs.js"></script>
+<script src="lib/bower_components/angular/angular.min.js"></script>
+<script src="lib/bower_components/angular-route/angular-route.js"></script>
+
+<!-- <script src="app/app1.js"></script> -->
+<script src="app/app3.js"></script>
+<script src="app/factories/songStorage.js"></script>
+<script src="app/controllers/songCtrl.js"></script>
+<script src="app/controllers/songFormCtrl.js"></script>
+
 </body>
 </html>
