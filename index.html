@@ -9,24 +9,19 @@
 
 <body ng-app="MusicApp">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app3.js-->
 	<div id="nav"><a href="/#/songs/list">View Music</a> | <a href="/#/songs/form">Add Music</a> | <a href="">Profile</a></div>
-	<div id="options">
+	<div id="options" ng-controller="songCtrl">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
 		<p>Artist:</p>
-		<select name="artist">
-<!-- 			<option value="">Options</option>
-			<option value="Hall">Tom T. Hall</option>
-			<option value="Rodriquez">Johnnie Rodriquez</option>
-			<option value="Pride">Charlie Pride</option>
-			<option value="Rodgers">Jimmie Rodgers</option> -->
-		</select>
+	    <select name="artist">
+	    	<option>Choose Artist</option>
+	    	<option ng-repeat="thing in songs"> {{ thing.artist }}</option>
+	    </select>
+
 		<p>Album:</p>
 		<select name="album">
-<!-- 			<option value="">Options</option>
-			<option value="5and10">Old Five and Dimers Like Me</option>
-			<option value="roadsideBench">Roadside Bench</option>
-			<option value="Live">Live</option>
-			<option value="Brakeman">Brakeman</option> -->
+	    	<option>Choose Album</option>
+	    	<option ng-repeat="thing in songs"> {{ thing.album }}</option>
 		</select>
 		<p>Genre:</p>
 			<table>
