@@ -2,5 +2,5 @@
   <input type="text" ng-model="query" />
 </div>
 <div ng-repeat="thing in songs | filter: query">
-  <a href="#/songs">{{ thing.title }}</a>
+  <a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
 </div>

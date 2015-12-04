@@ -1,4 +1,4 @@
-var app = angular.module("MusicApp", ["ngRoute"]);  // this is like require
+var app = angular.module("MusicApp", ["firebase", "ngRoute"]);  // this is like require
   // global 'angular' object has a function, 'module', that takes a name ('MusicApp') and
   // also takes an array of dependencies.
 
@@ -13,9 +13,21 @@ app.config(['$routeProvider',  // this is like entry.js
        templateUrl: '../partials/songForm.html',  //  location of template
        controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
      })
-    // .when('/songs/form', {  // when URL ends with this
-    //    templateUrl: '../partials/songFilters.html',  //  location of template
-    //    controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
-    //  })
-     .otherwise('/songs/list'); // catchall
+      // New route for viewing a single song  
+      // Here we set the route with the `:songId` parameter,  
+      // which gets matched in the controller to the href we  
+      // defined in the songs-list partial: href="#/songs/{{ song.$id }}
+      .when('/songs/details/:songId', {
+        templateUrl: 'partials/songDetails.html',
+        controller: 'SongDetailCtrl'
+      })
+      // .when('/songs/details/:songId', {
+      //   templateUrl: 'partials/songChoice.html',
+      //   controller: 'SongChoiceCtrl'
+      // })
+     // .otherwise('/songs/list'); // catchall
+     .otherwise({ redirectTo: '/songs/list' });
  }]);
+
+
+
