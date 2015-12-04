@@ -13,5 +13,9 @@ app.config(['$routeProvider',  // this is like entry.js
        templateUrl: '../partials/songForm.html',  //  location of template
        controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
      })
+    // .when('/songs/form', {  // when URL ends with this
+    //    templateUrl: '../partials/songFilters.html',  //  location of template
+    //    controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
+    //  })
      .otherwise('/songs/list'); // catchall
  }]);

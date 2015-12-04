@@ -7,12 +7,6 @@ function($q, $http) {
 
   var song_list;
 
-  // var song_list = [
-  //   { id: 1, name: "99 Problems", album: "Black", artist: "JayZ" },
-  //   { id: 2, name: "Helter Skelter", album: "White", artist: "Beatles"  },
-  //   { id: 3, name: "99 Problems", album: "Grey", artist: "DJ Danger Mouse"  }
-  // ];
-
   function loadSongs () {
     return $q(function(resolve, reject) {  // promises
       $http.get('../../songArray.json')  // $http is the Angular AJAX call
