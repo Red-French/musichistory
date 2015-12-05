@@ -6,11 +6,11 @@ app.config(['$routeProvider',  // this is like entry.js
  function($routeProvider) {  // 'routeProvider' is the traffic director
    $routeProvider
    .when('/songs/list', {  // when URL ends with this
-       templateUrl: '../partials/songList.html',  // location of template
+       templateUrl: 'partials/songList.html',  // location of template
        controller: 'songCtrl'  // name of controller (songCtrl.js)
      })
      .when('/songs/form', {  // when URL ends with this
-       templateUrl: '../partials/songForm.html',  //  location of template
+       templateUrl: 'partials/songForm.html',  //  location of template
        controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
      })
       // New route for viewing a single song  
@@ -22,8 +22,8 @@ app.config(['$routeProvider',  // this is like entry.js
         controller: 'SongDetailCtrl'
       })
       // .when('/songs/details/:songId', {
-      //   templateUrl: 'partials/songChoice.html',
-      //   controller: 'SongChoiceCtrl'
+      //   templateUrl: 'partials/.html',
+      //   controller: 'SongDeleteCtrl'
       // })
      // .otherwise('/songs/list'); // catchall
      .otherwise({ redirectTo: '/songs/list' });
