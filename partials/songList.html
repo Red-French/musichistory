@@ -3,6 +3,6 @@
   <input type="text" ng-model="query" />
 </div>
 <div ng-repeat="thing in songs | filter: query">
-	<button type="button" id="deleteButton">Delete</button>
+<a href="#/songs/delete" ><button type="button" id="deleteButton" ng-click="deleteSong(thing)">Delete</button></a>
 	<a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
 </div>

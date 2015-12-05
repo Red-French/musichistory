@@ -21,10 +21,10 @@ app.config(['$routeProvider',  // this is like entry.js
         templateUrl: 'partials/songDetails.html',
         controller: 'SongDetailCtrl'
       })
-      // .when('/songs/details/:songId', {
-      //   templateUrl: 'partials/.html',
-      //   controller: 'SongDeleteCtrl'
-      // })
+      .when('/songs/delete', {
+        templateUrl: 'partials/songList.html',
+        controller: 'songDeleteCtrl'
+      })
      // .otherwise('/songs/list'); // catchall
      .otherwise({ redirectTo: '/songs/list' });
  }]);
