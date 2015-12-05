@@ -33,6 +33,14 @@ a:hover {
 	color: white;
 }
 
+.text {
+	color: #E5E4E2;
+}
+
+input {
+	margin-bottom: 15px;
+}
+
 #options {
 	color: #E5E4E2;
 	float: left;
