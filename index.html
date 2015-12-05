@@ -4,11 +4,26 @@
 <head>
   <meta charset="utf-8">
   <title>NSS Starter Kit</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body ng-app="MusicApp">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app3.js-->
-	<div id="nav"><a href="/#/songs/list">View Music</a> | <a href="/#/songs/form">Add Music</a> | <a href="">Profile</a></div>
+<body ng-app="MusicApp" id="background">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app3.js-->
+	<div class="navbar transparent navbar-inverse navbar-fixed-top">
+	   <nav class="navbar-inner">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Songster</a>
+	    </div>
+	    <div>
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/#/songs/list">View Music</a></li>
+	        <li><a href="/#/songs/form">Add Music</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	</div>
 	<div id="options" ng-controller="songCtrl">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
@@ -50,7 +65,7 @@
 			<button type="button" class="filterButton">Filter</button>
 		</div>
 
-	<div ng-view></div>
+	<div ng-view id="results"></div>
 
 	</div>
 	<script src="lib/bower_components/angular/angular.min.js"></script>
@@ -63,7 +78,6 @@
 	<script src="app/factories/songStorage.js"></script>
 	<script src="app/controllers/songCtrl.js"></script>
 	<script src="app/controllers/songDetailCtrl.js"></script>
-
 	<script src="app/controllers/songFormCtrl.js"></script>
 </body>
 </html>

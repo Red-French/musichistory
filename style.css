@@ -1,23 +1,50 @@
-#nav {
-	width: 80%;
-	height: 35px;
-	margin: 0 auto 0 auto;
-	border: 2px solid black;
-	background-color: #FFB4B0;
+#background {
+  height: 750px;
+  background-image: url("http://coolblackppt.com/wp-content/uploads/2013/07/Europe-s-vinyl-pressing-plant-record-industry.jpg");
+  background-size: cover;
+  background-attachment :fixed;
 }
+
+a {
+	color: #E5E4E2;
+	text-decoration: none;
+}
+
+p {
+	color: #E5E4E2;
+}
+
+button {
+	color: black;
+}
+
+.navbar-brand {
+	font-size: 3em;
+}
+#songDetails {
+	color: #E5E4E2;
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
+}
+
+a:hover {
+	color: white;
+}
+
 #options {
+	color: #E5E4E2;
 	float: left;
-	margin: 5px 0 0 10%;
+	margin: 90px 0 0 10%;
 	width: 21%;
-	border: 2px solid black;
-	background-color: #4DD7fA;
 }
 #results {
+	font-size: 1.25em;
+	line-height: 2em;
 	float: right;
-	margin: 5px 10% 0 0;
+	margin: 75px 10% 0 0;
 	width: 57%;
-	border: 2px solid black;
-	background-color: #FEFAC0;
 }
 .songFont {
 	font-size: 1.65em;
