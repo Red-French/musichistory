@@ -5,7 +5,7 @@ app.controller("songCtrl", // 'songCtrl' is name given to this file/contoller
   function($scope, $firebaseArray) {
 
   $scope.searchText = "";
-  $scope.songs = [];  // place 'songs' (new array) on 'scope' object
+  // $scope.songs = [];  // place 'songs' (new array) on 'scope' object
 
 
 // Just like in the RequireJS version of Music History, make a reference
@@ -25,15 +25,15 @@ app.controller("songCtrl", // 'songCtrl' is name given to this file/contoller
   // );
 
 
-    $scope.newSong = { artist: "", album: "", name: ""};
+    // $scope.newSong = { artist: "", album: "", name: ""};
 
-    $scope.addSong = function() {
-      $scope.songs.$add({
-        artist: $scope.newSong.artist,
-        name: $scope.newSong.name,
-        album: $scope.newSong.album
-      });
-    };
+    // $scope.addSong = function() {
+    //   $scope.songs.$add({
+    //     artist: $scope.newSong.artist,
+    //     name: $scope.newSong.name,
+    //     album: $scope.newSong.album
+    //   });
+    // };
   }
 ]);
 
