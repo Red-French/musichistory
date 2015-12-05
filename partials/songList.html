@@ -1,6 +1,8 @@
 <div>
+  <div class="text">Search</div>
   <input type="text" ng-model="query" />
 </div>
 <div ng-repeat="thing in songs | filter: query">
-  <a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
+	<button type="button" id="deleteButton">Delete</button>
+	<a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
 </div>
