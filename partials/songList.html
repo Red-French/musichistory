@@ -1,8 +1,8 @@
 <div>
   <div class="text">Search</div>
-  <input type="text" ng-model="query" />
+  <!-- <input id="searchBox" type="text" ng-model="query" /> -->
 </div>
-<div ng-repeat="thing in songs | filter: query">
+<div ng-model="tunes" ng-repeat="thing in songs | filter: query">
 <a href="#/songs/delete" ><button type="button" id="deleteButton" ng-click="deleteSong(thing)">Delete</button></a>
 	<a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
 </div>
