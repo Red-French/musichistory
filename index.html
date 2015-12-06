@@ -19,6 +19,7 @@
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/#/songs/list">View Music</a></li>
 	        <li><a href="/#/songs/form">Add Music</a></li>
+	        <li><input ng-model="query" id="searchBox" type="text" class="form-control" placeholder="Search"></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -30,7 +31,7 @@
 		<p>Artist:</p>
 	    <select name="artist">
 	    	<option>Choose Artist</option>
-	    	<option ng-repeat="thing in songs"> {{ thing.artist }}</option>
+	    	<option ng-model="thing.title" ng-repeat="thing in songs" ng-value="artist" id="{{ thing.artist }}"> {{ thing.artist }}</option>
 	    </select>
 
 		<p>Album:</p>
@@ -62,7 +63,6 @@
 					</td>
 				</tr>
 			</table>
-			<button type="button" class="filterButton">Filter</button>
 		</div>
 
 	<div ng-view id="results"></div>
@@ -74,7 +74,6 @@
     <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
 
 	<script src="app/app3.js"></script>
-
 	<script src="app/factories/songStorage.js"></script>
 	<script src="app/controllers/songCtrl.js"></script>
 	<script src="app/controllers/songDetailCtrl.js"></script>
