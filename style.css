@@ -36,6 +36,10 @@ input {
 	margin-bottom: 15px;
 	color: #434c56;  /* SlateGray(30% shade) */
 }
+#userInstruction {
+	display: inline-block;
+	margin: 15px 0 0 50px;
+}
 #options {
 	color: #E5E4E2;
 	float: left;
