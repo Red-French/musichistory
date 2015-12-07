@@ -29,18 +29,19 @@
 	<div id="options" ng-controller="songCtrl">
 		<p>Song Length:</p>
 		<input type="range" name="Length" min="2" max="5">
-		<p>Artist:</p>
-	    <select name="artist">
-	    	<option>Choose Artist</option>
-	    	<option ng-model="thing.title" ng-repeat="thing in songs" ng-value="artist" id="{{ thing.artist }}"> {{ thing.artist }}</option>
+		<p id="artist">Artist: {{songs.repeatSelect}}</p>
+	    <select ng-model="songs.repeatSelect" name="artist">
+	    	<option value="Choose Artist">Choose Artist</option>
+	    	<option ng-repeat="thing in songs" value="{{thing}}"> {{ thing.artist }}</option>
 	    </select>
-
-		<p>Album:</p>
+	    <div><a href="#/songs/filter/{{thing.$id}}" ><button type="button" ng-click="filterSong(thing)">Filter</button></a>
+	    </div>
+<!-- 		<p>Album:</p>
 		<select name="album">
 	    	<option>Choose Album</option>
 	    	<option ng-repeat="thing in songs"> {{ thing.album }}</option>
-		</select>
-		<p>Genre:</p>
+		</select> -->
+		<p id="genre">Genre:</p>
 			<table>
 				<tr>
 					<td><input type="checkbox" name="genre" value="rock">Rock
@@ -80,5 +81,6 @@
 	<script src="app/controllers/songDetailCtrl.js"></script>
 	<script src="app/controllers/songFormCtrl.js"></script>
 	<script src="app/controllers/songDeleteCtrl.js"></script>
+	<script src="app/controllers/songFilterCtrl.js"></script>
 </body>
 </html>

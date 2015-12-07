@@ -1,4 +1,5 @@
-<div ng-model="tunes" ng-repeat="thing in songs | filter: query">
+<div ng-controller="songCtrl" ng-repeat="thing in songs | filter: query | filter: artistModel">
 <a href="#/songs/delete" ><button type="button" id="deleteButton" ng-click="deleteSong(thing)">Delete</button></a>
 	<a href="#/songs/details/{{thing.$id}}" >{{ thing.title }}</a>
+	<!-- <div>{{songs.repeatSelect}}</div> -->
 </div>

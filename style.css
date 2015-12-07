@@ -23,6 +23,9 @@ button {
 #songDetails {
 	color: #E5E4E2;
 }
+#songFilter {
+	color: #E5E4E2;
+}
 .navbar.transparent.navbar-inverse .navbar-inner {
    background: rgba(0,0,0,0.4);
 }
@@ -39,6 +42,12 @@ input {
 #userInstruction {
 	display: inline-block;
 	margin: 15px 0 0 50px;
+}
+#artist {
+	margin-top: 25px;
+}
+#genre {
+	margin-top: 25px;
 }
 #options {
 	color: #E5E4E2;

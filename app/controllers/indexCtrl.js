@@ -1,6 +1,6 @@
 // the controller is the brain
 
-app.controller("songCtrl", // 'songCtrl' is name given to this file/contoller
+app.controller("indexCtrl", // 'indexCtrl' is name given to this file/contoller
   ["$scope", "$firebaseArray",
   function($scope, $firebaseArray) {
 

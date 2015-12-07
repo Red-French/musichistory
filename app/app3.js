@@ -5,6 +5,10 @@ var app = angular.module("MusicApp", ["firebase", "ngRoute"]);  // this is like 
 app.config(['$routeProvider',  // this is like entry.js
  function($routeProvider) {  // 'routeProvider' is the traffic director
    $routeProvider
+   // .when('/songs', {
+   //      templateUrl: 'index.html',
+   //      controller: 'indexCtrl'
+   //    })
    .when('/songs/list', {  // when URL ends with this
        templateUrl: 'partials/songList.html',  // location of template
        controller: 'songCtrl'  // name of controller (songCtrl.js)
@@ -24,6 +28,10 @@ app.config(['$routeProvider',  // this is like entry.js
       .when('/songs/delete', {
         templateUrl: 'partials/songList.html',
         controller: 'songDeleteCtrl'
+      })
+      .when('/songs/filter', {
+        templateUrl: 'partials/songFilter.html',
+        controller: 'songFilterCtrl'
       })
      // .otherwise('/songs/list'); // catchall
      .otherwise({ redirectTo: '/songs/list' });
