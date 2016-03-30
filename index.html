@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -27,44 +26,18 @@
 	</nav>
 	</div>
 	<div id="options" ng-controller="songCtrl">
-		<p>Song Length:</p>
-		<input type="range" name="Length" min="2" max="5">
-		<p id="artist">Artist: {{songs.repeatSelect}}</p>
+		<!-- <p id="artist">{{songs.repeatSelect}}</p> -->
 	    <select ng-model="songs.repeatSelect" name="artist">
 	    	<option value="Choose Artist">Choose Artist</option>
 	    	<option ng-repeat="thing in songs" value="{{thing}}"> {{ thing.artist }}</option>
 	    </select>
-	    <div><a href="#/songs/filter/{{thing.$id}}" ><button type="button" ng-click="filterSong(thing)">Filter</button></a>
+	    <div><a href="#/songs/filter"><button type="button" ng-click="filterSong(thing.artist)">Filter</button></a>
 	    </div>
-<!-- 		<p>Album:</p>
+		<!-- <p>Album:</p>
 		<select name="album">
 	    	<option>Choose Album</option>
 	    	<option ng-repeat="thing in songs"> {{ thing.album }}</option>
 		</select> -->
-		<p id="genre">Genre:</p>
-			<table>
-				<tr>
-					<td><input type="checkbox" name="genre" value="rock">Rock
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="classical">Classical
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="pop">Pop
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="jazz">Jazz
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="blues">Blues
-					</td>
-					<td>
-						<input type="checkbox" name="genre" value="hipHop">Hip Hop
-					</td>
-				</tr>
-			</table>
 		</div>
 
 	<div ng-view id="results"></div>
@@ -75,8 +48,7 @@
 	<script src="lib/bower_components/firebase/firebase.js"></script>
     <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
 
-	<script src="app/app3.js"></script>
-	<script src="app/factories/songStorage.js"></script>
+	<script src="app/app.js"></script>
 	<script src="app/controllers/songCtrl.js"></script>
 	<script src="app/controllers/songDetailCtrl.js"></script>
 	<script src="app/controllers/songFormCtrl.js"></script>
