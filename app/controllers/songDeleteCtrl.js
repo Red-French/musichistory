@@ -5,14 +5,10 @@ app.controller("songDeleteCtrl", ["$scope", "$firebaseArray", function($scope, $
 
 	var ref = new Firebase("https://crackling-torch-4807.firebaseio.com/songs");
 	$scope.songs = $firebaseArray(ref);
-	// console.log("delete clicked");
-	// console.log($scope.songs);
 
 	$scope.deleteSong = function(song) {
-		// console.log(song.$id);
+		console.log(song.$id);
 		console.log("delete click");
-		// console.log(song);
 		$scope.songs.$remove(song);
 	};
-  
 }]);
