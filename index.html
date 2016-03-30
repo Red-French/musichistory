@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -35,32 +34,7 @@
 	    	<option ng-repeat="thing in songs">{{thing.artist}}</option>  <!-- SPECIAL NOTE: 'value' attribute as well as spaces outside curly brackets break the code!! -->
 	    </select>
 		<p ng-repeat="thing in songs | filter: artistModel">{{thing.title + " by " + thing.artist + " on the album "+ thing.album}}</p>
-
-<!-- 		<p id="genre">Genre:</p>
-			<table>
-				<tr>
-					<td><input type="checkbox" name="genre" value="rock">Rock
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="classical">Classical
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="pop">Pop
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="jazz">Jazz
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="blues">Blues
-					</td>
-					<td>
-						<input type="checkbox" name="genre" value="hipHop">Hip Hop
-					</td>
-				</tr>
-			</table> -->
-		</div>
+	</div>
 
 	<div ng-view id="results"></div>
 
@@ -68,10 +42,9 @@
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
-    <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
 
-	<script src="app/app3.js"></script>
-	<script src="app/factories/songStorage.js"></script>
+	<script src="app/app.js"></script>
 	<script src="app/controllers/songCtrl.js"></script>
 	<script src="app/controllers/songDetailCtrl.js"></script>
 	<script src="app/controllers/songFormCtrl.js"></script>
