@@ -13,23 +13,21 @@ app.controller("songFilterCtrl",
   // Make sure you use the $loaded promise handler, which waits
   // for all songs to be loaded from the reference before you try
   // to grab the record the user wanted.
-    // $scope.songs.$loaded()
-    //   .then(function() {
-    //     console.log("scope.songs", $scope.songs)
-    //   // The $getRecord method on a $firebaseArray is very useful
-    //     $scope.selectedSong = $scope.songs.$getRecord($scope.songId);
-    //     console.log("$scope.selectedSong", $scope.selectedSong);
-    //   })
-    //   .catch(function(error) {
-    //     console.log("Error:", error);
-    //   });
 
-          // $scope.filterSong = function(song) {
-          // function filterSong() {
-    // $scope.filterSong = function(song) {
-    //   console.log("inside filterSong");
-    //   console.log(song);
-    // };
+    $scope.songs.$loaded()
+      .then(function() {
+        console.log("scope.songs", $scope.songs)
+      // The $getRecord method on a $firebaseArray is very useful
+        $scope.selectedSong = $scope.songs.$getRecord($scope.songId);
+        console.log("$scope.selectedSong", $scope.selectedSong);
+      })
+      .catch(function(error) {
+        console.log("Error:", error);
+      });
 
+          $scope.filterSong = function(song) {
+    // console.log(song.$id);
+    console.log("inside filterSong");
+  };
  }]
 );

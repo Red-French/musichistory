@@ -7,8 +7,9 @@ app.controller("songDeleteCtrl", ["$scope", "$firebaseArray", function($scope, $
 	$scope.songs = $firebaseArray(ref);
 
 	$scope.deleteSong = function(song) {
-		console.log(song.$id);
+		// console.log(song.$id);
 		console.log("delete click");
 		$scope.songs.$remove(song);
 	};
+
 }]);

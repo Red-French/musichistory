@@ -26,18 +26,18 @@
 	</nav>
 	</div>
 	<div id="options" ng-controller="songCtrl">
-		<!-- <p id="artist">{{songs.repeatSelect}}</p> -->
+		<p id="artist">{{songs.repeatSelect}}</p>
 	    <select ng-model="songs.repeatSelect" name="artist">
 	    	<option value="Choose Artist">Choose Artist</option>
 	    	<option ng-repeat="thing in songs" value="{{thing}}"> {{ thing.artist }}</option>
 	    </select>
+
 	    <div><a href="#/songs/filter"><button type="button" ng-click="filterSong(thing.artist)">Filter</button></a>
 	    </div>
-		<!-- <p>Album:</p>
 		<select name="album">
 	    	<option>Choose Album</option>
 	    	<option ng-repeat="thing in songs"> {{ thing.album }}</option>
-		</select> -->
+		</select>
 		</div>
 
 	<div ng-view id="results"></div>
