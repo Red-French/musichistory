@@ -17,9 +17,9 @@ app.config(['$routeProvider',  // this is like entry.js
        templateUrl: 'partials/songForm.html',  //  location of template
        controller: 'songFormCtrl'  //  name of controller (songFormCtrl.js)
      })
-      // New route for viewing a single song  
-      // Here we set the route with the `:songId` parameter,  
-      // which gets matched in the controller to the href we  
+      // New route for viewing a single song
+      // Here we set the route with the `:songId` parameter,
+      // which gets matched in the controller to the href we
       // defined in the songs-list partial: href="#/songs/{{ song.$id }}
       .when('/songs/details/:songId', {
         templateUrl: 'partials/songDetails.html',
@@ -36,6 +36,3 @@ app.config(['$routeProvider',  // this is like entry.js
      // .otherwise('/songs/list'); // catchall
      .otherwise({ redirectTo: '/songs/list' });
  }]);
-
-
-
