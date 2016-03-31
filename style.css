@@ -51,16 +51,12 @@ input {
 }
 #options {
 	color: #E5E4E2;
-	float: left;
 	margin: 90px 0 0 10%;
-	width: 21%;
 }
 #results {
 	font-size: 1.25em;
 	line-height: 2em;
-	float: right;
 	margin: 75px 10% 0 0;
-	width: 57%;
 }
 .songFont {
 	font-size: 1.65em;
@@ -76,3 +72,6 @@ input {
 .filterButton {
 	margin: 0 auto 0 auto;
 }
+.modal-content {
+  margin: auto 5% auto 40%; }
+  
