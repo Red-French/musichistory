@@ -1,2 +1,2 @@
 # musichistory
-Basic info... blah blah blah
+A project for NSS taken through many stages of development through advancing technologies.
