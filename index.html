@@ -1,69 +1,76 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NSS Starter Kit</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Songster</title>
+	<link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
-	<div id="nav">View Music | <a href="">Add Music</a> | <a href="">Profile</a></div>
-	<div id="options">
-		<p>Song Length:</p>
-		<input type="range" name="Length" min="2" max="5">
-		<p>Artist:</p>
-		<select name="artist">
-			<option value="">Options</option>
-			<option value="Hall">Tom T. Hall</option>
-			<option value="Rodriquez">Johnnie Rodriquez</option>
-			<option value="Pride">Charlie Pride</option>
-			<option value="Rodgers">Jimmie Rodgers</option>
-		</select>
-		<p>Album:</p>
-		<select name="album">
-			<option value="">Options</option>
-			<option value="5and10">Old Five and Dimers Like Me</option>
-			<option value="roadsideBench">Roadside Bench</option>
-			<option value="Live">Live</option>
-			<option value="Brakeman">Brakeman</option>
-		</select>
-		<p>Genre:</p>
-			<table>
-				<tr>
-					<td><input type="checkbox" name="genre" value="rock">Rock
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="classical">Classical
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="pop">Pop
-					</td>
-					<td>
-					<input type="checkbox" name="genre" value="jazz">Jazz
-					</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="genre" value="blues">Blues
-					</td>
-					<td>
-						<input type="checkbox" name="genre" value="hipHop">Hip Hop
-					</td>
-				</tr>
-			</table>
-			<button type="button" class="filterButton">Filter</button>
-		</div>
-	<div id="results">
-<!-- 		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p>
-		<p class="songFont">Song Name</p>
-		<p class="songDetails">Artist name | Album name | Genre</p> -->
+<body ng-app="MusicApp" id="background">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app.js-->
+	<div class="navbar transparent navbar-inverse navbar-fixed-top">
+	   <nav class="navbar-inner">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Songster</a>
+	    </div>
+	    <div>
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/#/songs/list">View Music</a></li>
+	        <li><a href="/#/songs/form">Add Music</a></li>
+	        <li><input ng-model="query" id="searchBox" type="text" class="form-control" placeholder="Search"></li>
+	      </ul>
+	    </div>
+	    <div id="userInstruction" class="text">Click Title for Song Details</div>
+	  </div>
+	</nav>
 	</div>
-<script src="songs.js"></script>
+	<div id="options" ng-controller="songCtrl">
+		<span>Choose Artist:</span>
+    <select ng-model="artistModel" name="artist">
+    	<option></option>
+    	<option ng-repeat="thing in songs">{{thing.artist}}</option>
+    </select>
+    <span>Choose Album:</span>
+		<select ng-model="albumModel" name="album">
+	    	<option></option>
+	    	<option ng-repeat="thing in songs">{{thing.album}}</option>
+		</select>
+
+	<div ng-view id="results"></div>
+
+  </div>
+
+    <!-- Modal for scan added -->
+  <div class="modal fade" id="addSongModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Song</h4>
+        </div>
+        <div class="modal-body">
+        The song was successfully added.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="lib/bower_components/angular/angular.min.js"></script>
+	<script src="lib/bower_components/angular-route/angular-route.js"></script>
+	<script src="lib/bower_components/firebase/firebase.js"></script>
+  <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
+
+	<script src="app/app.js"></script>
+	<script src="app/controllers/songCtrl.js"></script>
+	<script src="app/controllers/songDetailCtrl.js"></script>
+	<script src="app/controllers/songFormCtrl.js"></script>
+	<script src="app/controllers/songDeleteCtrl.js"></script>
+	<script src="app/controllers/songFilterCtrl.js"></script>
 </body>
 </html>
