@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NSS Starter Kit</title>
+  <title>Songster</title>
 	<link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body ng-app="MusicApp" id="background">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app3.js-->
+<body ng-app="MusicApp" id="background">  <!-- tells Angular what part of the view is controlled by the app - 'MusicApp' is the name given to the 'module' function in app.js-->
 	<div class="navbar transparent navbar-inverse navbar-fixed-top">
 	   <nav class="navbar-inner">
 	  <div class="container-fluid">
@@ -26,27 +26,45 @@
 	</nav>
 	</div>
 	<div id="options" ng-controller="songCtrl">
-		<p id="artist">{{songs.repeatSelect}}</p>
-	    <select ng-model="songs.repeatSelect" name="artist">
-	    	<option value="Choose Artist">Choose Artist</option>
-	    	<option ng-repeat="thing in songs" value="{{thing}}"> {{ thing.artist }}</option>
-	    </select>
-
-	    <div><a href="#/songs/filter"><button type="button" ng-click="filterSong(thing.artist)">Filter</button></a>
-	    </div>
-		<select name="album">
-	    	<option>Choose Album</option>
-	    	<option ng-repeat="thing in songs"> {{ thing.album }}</option>
+		<span>Choose Artist:</span>
+    <select ng-model="artistModel" name="artist">
+    	<option></option>
+    	<option ng-repeat="thing in songs">{{thing.artist}}</option>
+    </select>
+    <span>Choose Album:</span>
+		<select ng-model="albumModel" name="album">
+	    	<option></option>
+	    	<option ng-repeat="thing in songs">{{thing.album}}</option>
 		</select>
-		</div>
 
 	<div ng-view id="results"></div>
 
-	</div>
+  </div>
+
+    <!-- Modal for scan added -->
+  <div class="modal fade" id="addSongModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Song</h4>
+        </div>
+        <div class="modal-body">
+        The song was successfully added.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="lib/bower_components/angular/angular.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.js"></script>
 	<script src="lib/bower_components/firebase/firebase.js"></script>
-    <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="lib/bower_components/angularfire/dist/angularfire.js"></script>
 
 	<script src="app/app.js"></script>
 	<script src="app/controllers/songCtrl.js"></script>
